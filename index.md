@@ -1,11 +1,16 @@
 API Design Document for Web3 Government Structure Navigator (Low Availability)
 
 Project: Decentralized Government Structure Navigator
+
 Prepared by: Nwoba Arinze
-Track: Backend
+
+Track: Backend 
+
 Group: 7
+
 Date: 08-04-2025
-Base URL:
+
+Base URL:https://aristophane015.github.io/CIVICLINK-WEB3-API/
 
 
 
@@ -30,7 +35,7 @@ Description: Connect the user's Web3 wallet (MetaMask, WalletConnect, etc.) to a
 Request Body:
 
 json
-Copy
+
 {
   "walletProvider": "MetaMask",
   "walletAddress": "0x...your_wallet_address"
@@ -38,7 +43,7 @@ Copy
 Response:
 
 json
-Copy
+
 {
   "status": "connected",
   "walletAddress": "0x...your_wallet_address"
@@ -49,14 +54,12 @@ Description: Disconnect the user's Web3 wallet.
 Request Body:
 
 json
-Copy
 {
   "walletAddress": "0x...your_wallet_address"
 }
 Response:
 
 json
-Copy
 {
   "status": "disconnected"
 }
@@ -69,7 +72,7 @@ Since the data is stored in a smart contract, this API endpoint fetches it and e
 Response:
 
 json
-Copy
+
 {
   "status": "success",
   "structure": [
@@ -115,7 +118,7 @@ location (string): The location or state of the official (e.g., "imo").
 Response:
 
 json
-Copy
+
 {
   "status": "verified",
   "official": {
@@ -134,7 +137,7 @@ Useful for determining whether the data is fully synchronized and available, esp
 
 Response:
 
-json
+
 Copy
 {
   "status": "sync_in_progress",
@@ -148,7 +151,6 @@ This would allow authorized users (e.g., government officials) to update the rec
 Request Body:
 
 json
-Copy
 {
   "role": "Governor",
   "location": "Enugu",
@@ -161,7 +163,7 @@ Copy
 Response:
 
 json
-Copy
+
 {
   "status": "data_synced",
   "transactionHash": "0x...transaction_hash"
@@ -173,9 +175,8 @@ Description: Retrieves the cached government structure data in case the user is 
 This is useful for low-availability situations where data needs to be available even when the blockchain is not accessible.
 
 Response:
-
 json
-Copy
+
 {
   "status": "cached",
   "structure": [
@@ -201,7 +202,7 @@ In low-availability environments, this is used when connectivity returns to upda
 Response:
 
 json
-Copy
+
 {
   "status": "cache_refreshed",
   "lastUpdated": "2025-04-09T10:00:00Z"
@@ -217,7 +218,7 @@ Error Codes:
 503 - Service Unavailable: Blockchain or smart contract unreachable, typically due to low availability or network issues.
 
 Error Responses:
-json
+
 
 {
   "error": "Service Unavailable",
